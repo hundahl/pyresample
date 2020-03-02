@@ -243,7 +243,7 @@ class Arc(object):
        current arc and *other_arc*.
        From http://williams.best.vwh.net/intersect.htm
         """
-        logger.info("*** start intersectionS fun")
+        #logger.info("*** start intersectionS fun")
         if self.end.lon - self.start.lon > np.pi:
             self.end.lon -= 2 * np.pi
         if other_arc.end.lon - other_arc.start.lon > np.pi:
@@ -278,7 +278,7 @@ class Arc(object):
         None is returned if there is not intersection.
         An arc is defined as the shortest tracks between two points.
         """
-        logger.info("*** start intersection fun")
+        #logger.info("*** start intersection fun")
         if self == other_arc:
             return None
 
@@ -287,11 +287,11 @@ class Arc(object):
             b__ = self.end
             c__ = other_arc.start
             d__ = other_arc.end
-            logger.info("*** seft start end {} {}, other start end {} {}".format(a__, b__, c__, d__))
+            #logger.info("*** seft start end {} {}, other start end {} {}".format(a__, b__, c__, d__))
 
             ab_ = a__.hdistance(b__)
             cd_ = c__.hdistance(d__)
-            logger.info("*** hdis ab: {}, hdis cd: {}".format(ab_, cd_))
+            #logger.info("*** hdis ab: {}, hdis cd: {}".format(ab_, cd_))
 
             if(((i in (a__, b__)) or
                 (abs(a__.hdistance(i) + b__.hdistance(i) - ab_) < EPSILON)) and
@@ -306,9 +306,9 @@ class Arc(object):
         logger.info("*** arcs {}".format(arcs))
         res = []
         for arc in arcs:
-            logger.info("*** arc {}".format(arc))
+            #logger.info("*** arc {}".format(arc))
             inter = self.intersection(arc)
-            logger.info("*** inter {}".format(inter))
+            #logger.info("*** inter {}".format(inter))
             if (inter is not None and
                     inter != arc.end and
                     inter != self.end):
