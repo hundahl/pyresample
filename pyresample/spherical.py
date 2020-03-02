@@ -303,7 +303,7 @@ class Arc(object):
     def get_next_intersection(self, arcs, known_inter=None):
         """Get the next intersection between the current arc and *arcs*
         """
-        logger.info("*** arcs {}".format(arcs))
+        #logger.info("Start get_next_intersection")
         res = []
         for arc in arcs:
             #logger.info("*** arc {}".format(arc))
@@ -489,6 +489,7 @@ class SphPolygon(object):
                 break
             if inter == nodes[0]:
                 break
+            logger.info("I am in a loop")
         return SphPolygon(np.array([(node.lon, node.lat) for node in nodes]), radius=self.radius)
 
     def union(self, other):
